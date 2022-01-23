@@ -1,0 +1,538 @@
+/* Description: Main CSS File */
+
+/******************************
+Table of Contents:
+- Custom Properties
+- Global Rules
+- Components
+- Header
+- Hero Section
+- Features
+- Testimonials
+- Pricing
+- Footer
+******************************/
+
+
+/**************************/
+/*   Custom Properties   */
+/************************/
+:root {
+    /* Colors */
+    --logo-color: hsl(216, 91%, 58%);
+    --section-color-1: hsl(38, 50%, 97%);
+    --section-color-2: hsl(180, 60%, 90%);
+    --twitter-color: hsl(203, 89%, 53%);
+    --border-card-color: hsl(38, 100%, 59%);
+    --light-text: hsl(0, 0%, 45%);
+    --hr-color: hsl(0, 0%, 72%);
+    --highlight: hsl(196, 66%, 36%);
+
+    /* Font */
+    --font-family: 'Inter', sans-serif;;
+}
+
+
+/*********************/
+/*   Global Rules   */
+/*******************/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--font-family);
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/*******************/
+/*   Components   */
+/*****************/
+.logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--logo-color);
+}
+
+.twitter-btn {
+    background-color: var(--twitter-color);
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 20px;
+    width: fit-content;
+}
+
+.twitter-btn > img {
+    margin-right: 10px;
+    max-width: 21px;
+}
+
+/***************/
+/*   Header   */
+/*************/
+header {
+    background-color: var(--section-color-1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav .toggle {
+    cursor: pointer;
+}
+
+header nav ul {
+    position: absolute;
+    width: calc(100% - 30px);
+    top: 70px;
+    right: 15px;
+    background-color: var(--section-color-1);
+    border: 1px solid var(--hr-color);
+    text-align: center;
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+    transition: -webkit-transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+}
+
+header nav ul.show-nav {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+header nav ul.show-nav li {
+    margin: 15px 0;
+}
+
+header nav ul a.twitter-btn {
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    header nav .toggle {
+        display: none;
+    }
+    
+    header nav ul {
+        /* Unsetting mobile properties */
+        position: unset;
+        width: unset;
+        background-color: unset;
+        border: unset;
+        text-align: unset;
+        -webkit-transform: unset;
+        transform: unset;
+        transition: unset;
+
+        /* new properties */
+        display: flex;
+        align-items: center;
+    }
+
+    header nav ul li:not(:last-child) {
+        margin-right: 20px;
+    }
+
+    header nav ul a.twitter-btn {
+        margin: unset;
+    }
+}
+
+/*********************/
+/*   Hero Section   */
+/*******************/
+.hero {
+    background-color: var(--section-color-1);
+    padding-bottom: 25px;
+    min-height: calc(100vh - 90px);
+}
+
+.hero .hero-text h1 {
+    margin: 15px 0;
+}
+
+.hero .hero-text p {
+    color: var(--light-text);
+    margin-bottom: 15px;
+}
+
+.hero .hero-text a {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.hero .hero-text a:not(.twitter-btn) {
+    color: var(--highlight);
+    font-weight: 600;
+    display: block;
+    text-align: center;
+}
+
+.hero .hero-text .avatars {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.hero .hero-text .avatars img:not(:first-child) {
+    margin-left: -22px;
+}
+
+.hero .hero-text .join {
+    color: var(--light-text);
+    max-width: 450px;
+}
+
+.hero .hero-text .join span {
+    color: var(--highlight);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    .hero .hero-text .btns {
+        display: flex;
+        align-items: center;
+    }
+
+    .hero .hero-text a {
+        width: fit-content;
+        margin-right: 15px;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero .container {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .hero img {
+        max-width: 500px;
+    }
+
+    .hero .hero-text {
+        margin-right: 80px;
+    }
+
+    .hero .hero-text h1 {
+        font-size: 3.2rem;
+    }
+
+    .hero .hero-text p {
+        line-height: 1.7;
+    }
+}
+
+/*****************/
+/*   Features   */
+/***************/
+.features {
+    padding-top: 55px;
+    padding-bottom: 35px;   
+}
+
+.features .inner {
+    display: grid;
+    gap: 20px;
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    max-width: 450px;
+    line-height: 1.3;
+}
+
+.features .feature {
+    border: 1px solid var(--hr-color);
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.features .feature > div {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.features .feature h4 {
+    margin-bottom: 8px;
+}
+
+.features .feature p {
+    color: var(--light-text);
+    font-size: .95rem;
+}
+
+@media (min-width: 768px) {
+    .features .inner {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/*********************/
+/*   Testimonials   */
+/*******************/
+.testimonials {
+    background-color: var(--section-color-2);
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 35px;
+}
+
+.testimonials .scrolling-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 20px;
+}
+
+.testimonials .testimonial {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.testimonials .testimonial .user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.testimonials .testimonial .user-info {
+    flex: 1;
+    margin-left: 8px;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.testimonials .testimonial .user-info span {
+    display: block;
+    font-weight: normal;
+    font-size: .9rem;
+    margin-top: 2px;
+}
+
+.testimonials .testimonial .stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.testimonials .testimonial .likes {
+    display: flex;
+    align-items: center;
+}
+
+.testimonials .testimonial .likes > img {
+    margin-right: 6px;
+}
+
+.testimonials .testimonial .user,
+.testimonials .testimonial > p {
+    margin-bottom: 18px;
+}
+
+.testimonials .testimonial .user-info span,
+.testimonials .testimonial > p,
+.testimonials .testimonial .likes,
+.testimonials .testimonial .date {
+    color: var(--light-text);
+}
+
+@media (min-width: 768px) {     
+    .testimonials .scrolling-wrapper {
+        align-items: flex-start;
+        flex-flow: row nowrap;
+        overflow-x: auto;
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+     /* Hide scrollbar for Chrome, Safari and Opera */
+    .testimonials .scrolling-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .testimonials .testimonial {
+        flex: 0 0 auto;
+        min-width: 300px;
+        width: calc(calc(100% - 40px) / 3);
+    }
+}
+
+/****************/
+/*   Pricing   */
+/**************/
+.pricing {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    line-height: 1.5;
+}
+
+.pricing h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.pricing h2 + div {
+    text-align: center;
+    color: var(--light-text);
+    margin-bottom: 30px;
+}
+
+.pricing .card {
+    margin: 0 auto;
+    border: 1px solid var(--border-card-color);
+    border-radius: 8px;
+    background-color: var(--section-color-1);
+    padding: 25px;
+    max-width: 500px;
+}
+
+.pricing .monthly {
+    color: var(--light-text);  
+    margin-bottom: 7px;  
+}
+
+.pricing .price {
+    font-weight: bold;
+    font-size: 2.2rem;
+}
+
+.pricing .price span {
+    font-weight: normal;
+    font-size: 1rem;
+    color: var(--light-text);    
+}
+
+.pricing hr {
+    margin: 18px 0;
+    border: 1px solid var(--hr-color);
+}
+
+.pricing ul {
+    color: var(--light-text);    
+}
+
+.pricing ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.pricing ul li::before {
+    content: url("../assets/checkmark.svg");
+    margin-right: 10px;
+}
+
+.pricing .card a {
+    width: 100%;
+}
+
+/***************/
+/*   Footer   */
+/*************/
+footer {
+    background-color: var(--section-color-2);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer .logo {
+    display: block;
+    margin-bottom: 10px;
+}
+
+footer ul {
+    display: flex;
+}
+
+footer li:not(:last-child) {
+    margin-right: 15px;
+}
+
+@media (min-width: 768px) {
+    footer .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    footer .logo {
+        margin-bottom: unset;
+    }
+}
